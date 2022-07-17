@@ -1,7 +1,6 @@
 // app.js
-
-// import http module
-import http from 'http';
+// require http module
+const http = require('http');
 
 // use current environment port or specify port 5000
 const PORT = process.env.PORT || 5000;
