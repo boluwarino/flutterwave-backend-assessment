@@ -42,7 +42,7 @@ app.post("/split-payments/compute", (req, res) => {
         Amount
     } = req.body;
     const finalBreakdown = [];
-    const flatBreakdown = [];
+    // const flatBreakdown = [];
     const percentageBreakdown = [];
     const ratioBreakdown = [];
     let totalRatio = 0;
@@ -51,7 +51,11 @@ app.post("/split-payments/compute", (req, res) => {
     for (const split of SplitInfo) {
         switch (split.SplitType) {
             case "FLAT": {
-                flatBreakdown.push(split);
+                finalBreakdown.push({
+                    SplitEntityId: split.SplitEntityId,
+                    Amount: split.SplitValue
+                });
+                currentBalance -= split.SplitValue;
                 break;
             }
             case "PERCENTAGE": {
@@ -68,13 +72,13 @@ app.post("/split-payments/compute", (req, res) => {
     }
 
     // flat compute
-    for (const flatSplit of flatBreakdown) {
-        finalBreakdown.push({
-            SplitEntityId: flatSplit.SplitEntityId,
-            Amount: flatSplit.SplitValue
-        });
-        currentBalance -= flatSplit.SplitValue;
-    }
+    // for (const flatSplit of flatBreakdown) {
+    //     finalBreakdown.push({
+    //         SplitEntityId: flatSplit.SplitEntityId,
+    //         Amount: flatSplit.SplitValue
+    //     });
+    //     currentBalance -= flatSplit.SplitValue;
+    // }
 
     // percentage compute
     for (const percentageSplit of percentageBreakdown) {
