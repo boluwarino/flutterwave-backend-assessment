@@ -4,18 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/boluwarino/flutterwave-backend-assessment.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/boluwarino/flutterwave-backend-assessment/issues"
-  },
-  "homepage": "https://github.com/boluwarino/flutterwave-backend-assessment#readme"
+  }
 }
